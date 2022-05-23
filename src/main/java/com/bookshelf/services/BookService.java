@@ -9,4 +9,6 @@ import org.springframework.stereotype.Service;
 @Service
 public interface BookService {
     List<Book> getAllBooks();
+
+    Book findBookById(Long id);
 }

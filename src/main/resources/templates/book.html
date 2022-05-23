@@ -29,8 +29,37 @@
                 </ul>
             </div>
         </div>
-        <div class="col-6">Stuff</div>
-        <div class="col-3">Stuff</div>
+        <div class="col-9">
+            <div class="row">
+                <div class="col-6">
+                    <img th:src="${book.bookPhotoUrl}" alt="Image of book" srcset="" width="380px" height="380px">
+                </div>
+                <div class="col-6 ml-1 py-2">
+                    <h3 th:text="${book.name}"></h3>
+                    <hr />
+                    <div class="row">
+                        <small class="col-6 text-primary ">Number of Page : </small>
+                        <p th:text="${book.numberOfPages}" class="col-3 text-danger"></p>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <small class="col-6 text-primary ">ISBN </small>
+                        <p th:text="${book.isbn}" class="col-3 text-success"></p>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <h6 class="col-6 text-primary">Short descciption</h6>
+                        <small th:text="${book.shortDesc}" class="col-3 text-success"></small>
+                    </div>
+                    <hr>
+                    <div class="rating row">
+                        <small class="col-6 text-primary ">Rating</small>
+                        <p th:text="${book.rating.rating}" class="col-3 text-success"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="col-3">Stuff</div> -->
     </div>
 </body>
 

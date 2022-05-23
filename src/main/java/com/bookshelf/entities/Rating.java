@@ -15,7 +15,7 @@ public class Rating {
     private Long id;
     private Integer rating;
 
-    @OneToOne(mappedBy = "ratings")
+    @OneToOne(mappedBy = "rating")
     private Book book;
 
     public Rating() {
