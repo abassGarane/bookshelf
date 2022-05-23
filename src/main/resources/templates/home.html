@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <title>BookShelf</title>
+</head>
+
+<body class="m-3">
+    <div class="content row ">
+        <div class="col-3 ml-2">
+            <div class="container">
+                <ul class="list-group">
+                    <li class="list-group-item"><a th:href="@{/}" class="mb-5">BookShelf</a></li>
+                    <li class="list-group-item"><a th:href="@{/}" cl>All</a></li>
+                    <li class="list-group-item"><a th:href="@{/library}" cl>Library</a></li>
+                    <li class="list-group-item"><a th:href="@{/categories}" cl>Categories</a></li>
+                    <li class="list-group-item"><a th:href="@{/authors}" cl>Authors</a></li>
+                    <li class="list-group-item"><a th:href="@{/recommended}" cl>Recommended</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-6">Stuff</div>
+        <div class="col-3">Stuff</div>
+    </div>
+</body>
+
+</html>
