@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+    <title>BookShelf</title>
+</head>
+
+<body class="m-3">
+    <div class="content row ">
+        <div th:replace="fragments/header :: header"></div>
+        <div class="col-6">
+            <h1>Create a new Student</h1>
+            <div class="card-body">
+                <form th:action="@{/books}" th:object="${book}" method="post">
+                    <div class="form-group mb-3">
+                        <label for="name">Book name</label>
+                        <input type="text" name="name" th:field="*{name}" placeholder="Enter Book name"
+                            class="form-control">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="bookPhotoUrl">Book's Photo url</label>
+                        <input type="text" name="bookPhotoUrl" th:field="*{bookPhotoUrl}"
+                            placeholder="Enter Book's photo url" class="form-control">
+
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="shortDesc">Book's Short Description</label>
+                        <input type="text" name="shortDesc" th:field="*{shortDesc}"
+                            placeholder="Enter the book's short Description" class="form-control">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="numberOfPages">Number of pages</label>
+                        <input type="number" min="0" maxlength="10000" name="numberOfPages" th:field="*{numberOfPages}"
+                            placeholder="Number of pages of the book" class="form-control">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="isbn">Book's ISBN</label>
+                        <input type="text" name="isbn" th:field="*{isbn}" placeholder="Enter the book's isbn"
+                            class="form-control">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="language">Book's Language</label>
+                        <input type="text" name="language" th:field="*{isbn}" placeholder="Enter the book's language"
+                            class="form-control">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="language">Book's Rating</label>
+                        <input type="number" name="language" th:field="*{rating.rating}"
+                            placeholder="Enter the book's Rating" class="form-control">
+                    </div>
+                    <div class="footer-body">
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="row" th:replace="fragments/footer :: footer">Stuff</div>
+</body>
+
+</html>

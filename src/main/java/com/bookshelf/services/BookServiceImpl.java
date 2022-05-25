@@ -28,4 +28,10 @@ public class BookServiceImpl implements BookService {
         return booksRepo.findById(id).get();
     }
 
+    @Override
+    public void saveBook(Book book) {
+        booksRepo.save(book);
+
+    }
+
 }
