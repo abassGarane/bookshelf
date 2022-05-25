@@ -1,3 +1,3 @@
 # bookshelf
 Library 
-![BookShelf][./images/bookshelf.png]
+![BookShelf][images/bookshelf.png]
