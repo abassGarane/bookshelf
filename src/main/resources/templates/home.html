@@ -15,21 +15,7 @@
 
 <body class="m-3">
     <div class="content row ">
-        <div class="col-4 ml-2">
-            <div class="container">
-                <ul class="list-group">
-                    <li class="list-group-item"><a th:href="@{/}" class="mb-5">
-                            <p>BookShelf</p>
-                            <img th:src="@{images/logo.jpg}" alt="Logo" width="50" height="40">
-                        </a></li>
-                    <li class="list-group-item"><a th:href="@{/}" cl>All</a></li>
-                    <li class="list-group-item"><a th:href="@{/library}" cl>Library</a></li>
-                    <li class="list-group-item"><a th:href="@{/categories}" cl>Categories</a></li>
-                    <li class="list-group-item"><a th:href="@{/authors}" cl>Authors</a></li>
-                    <li class="list-group-item"><a th:href="@{/recommended}" cl>Recommended</a></li>
-                </ul>
-            </div>
-        </div>
+        <div th:replace="fragments/header :: header"></div>
         <div class="col-8 row">
             <div th:each="book:${books}">
                 <div class="card-group">
@@ -56,8 +42,8 @@
             </div>
 
         </div>
-        <!-- <div class="col-3">Stuff</div> -->
     </div>
+    <div class="row" th:replace="fragments/footer :: footer">Stuff</div>
 </body>
 
 </html>

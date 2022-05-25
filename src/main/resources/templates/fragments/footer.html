@@ -12,21 +12,12 @@
     <title>BookShelf</title>
 </head>
 
-<body class="m-3">
-    <div class="content row ">
-        <div th:replace="fragments/header :: header"></div>
-        <div class="col-8 row">
-            <h1 th:text="${author.firstName}"></h1>
-            <h1 th:text="${author.lastName}"></h1>
-            <ul th:each="book:${author.books}">
-                <li th:text="${book.name}"></li>
-            </ul>
-
-
-
+<body>
+    <footer>
+        <div class="row">
+            <div>&copy; 2022 BookShelf</div>
         </div>
-    </div>
-    <div class="row text-center" th:replace="fragments/footer :: footer">Stuff</div>
+    </footer>
 </body>
 
 </html>
