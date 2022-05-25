@@ -43,7 +43,9 @@ public class BooksController {
     }
 
     @PostMapping("/books")
-    public String saveBook(@ModelAttribute("book") Book book, @ModelAttribute("rating") Rating rating, Model model) {
+    public String saveBook(@ModelAttribute("book") Book book, Model model) {
+        Rating rating = new Rating();
+        rating.setRating(0);
         Rating ratingSaved = ratingService.saveRating(rating);
         book.setRating(ratingSaved);
         bookService.saveBook(book);
