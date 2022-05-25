@@ -3,6 +3,7 @@ package com.bookshelf.controllers;
 import com.bookshelf.entities.Book;
 import com.bookshelf.entities.Rating;
 import com.bookshelf.services.BookService;
+import com.bookshelf.services.RatingService;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,9 +15,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class BooksController {
     private BookService bookService;
+    private RatingService ratingService;
 
-    public BooksController(BookService bookService) {
+    public BooksController(BookService bookService, RatingService ratingService) {
         this.bookService = bookService;
+        this.ratingService = ratingService;
     }
 
     @GetMapping("/")
@@ -35,14 +38,14 @@ public class BooksController {
     @GetMapping("/books/new")
     public String createBook(Model model) {
         model.addAttribute("book", new Book());
+        model.addAttribute("rating", new Rating());
         return "create_book";
     }
 
     @PostMapping("/books")
-    public String saveBook(@ModelAttribute("book") Book book, Model model) {
-        Rating rating = new Rating();
-        book.setRating(rating);
-        rating.setRating(4);
+    public String saveBook(@ModelAttribute("book") Book book, @ModelAttribute("rating") Rating rating, Model model) {
+        Rating ratingSaved = ratingService.saveRating(rating);
+        book.setRating(ratingSaved);
         bookService.saveBook(book);
         return "redirect:/";
     }

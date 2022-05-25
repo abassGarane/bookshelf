@@ -34,6 +34,11 @@
                     </div>
                     <hr>
                     <div class="row">
+                        <small class="col-6 text-primary ">Language </small>
+                        <p th:text="${book.language}" class="col-3 text-success"></p>
+                    </div>
+                    <hr>
+                    <div class="row">
                         <h6 class="col-6 text-primary">Short description</h6>
                         <small th:text="${book.shortDesc}" class="col-3 text-success"></small>
                     </div>
@@ -42,11 +47,15 @@
                         <small class="col-6 text-primary ">Rating</small>
                         <p th:text="${book.rating.rating}" class="col-3 text-success"></p>
                     </div>
+                    <div class="col-6 mt-5">
+                        <a th:href="@{/books/edit/{id}(id=${book.id})}" class="btn btn-primary">Edit book</a>
+                    </div>
                 </div>
             </div>
         </div>
         <!-- <div class="col-3">Stuff</div> -->
     </div>
+
     <div class="row text-center" th:replace="fragments/footer :: footer">Stuff</div>
 </body>
 

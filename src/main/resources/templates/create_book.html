@@ -51,10 +51,10 @@
                         <input type="text" name="language" th:field="*{isbn}" placeholder="Enter the book's language"
                             class="form-control">
                     </div>
-                    <div class="form-group mb-3">
+                    <div class="form-group mb-3" th:object="${rating}">
                         <label for="language">Book's Rating</label>
-                        <input type="number" name="language" th:field="*{rating.rating}"
-                            placeholder="Enter the book's Rating" class="form-control">
+                        <input type="number" name="language" th:field="*{rating}" placeholder="Enter the book's Rating"
+                            class="form-control">
                     </div>
                     <div class="footer-body">
                         <button class="btn btn-primary" type="submit">Submit</button>
