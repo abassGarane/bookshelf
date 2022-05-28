@@ -34,4 +34,9 @@ public class BookServiceImpl implements BookService {
 
     }
 
+    @Override
+    public void updateBook(Book old) {
+        booksRepo.save(old);        
+    }
+
 }

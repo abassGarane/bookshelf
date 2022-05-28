@@ -5,6 +5,7 @@ import com.bookshelf.entities.Rating;
 import com.bookshelf.services.BookService;
 import com.bookshelf.services.RatingService;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -50,5 +51,24 @@ public class BooksController {
         book.setRating(ratingSaved);
         bookService.saveBook(book);
         return "redirect:/";
+    }
+
+    @GetMapping("/books/edit/{id}")
+    public String editBook(@PathVariable("id") Long id, Model model){
+        System.out.println("called");
+        model.addAttribute("book", bookService.findBookById(id));
+        return "edit";
+    }
+
+    @PostMapping("/books/update/{id}")
+    public String updateBook(@PathVariable("id") Long id, @ModelAttribute("book") Book book){
+
+        Book old  = bookService.findBookById(id);
+        Rating rating = new Rating();
+        rating.setRating(old.getRating().getRating());
+        BeanUtils.copyProperties(book, old);
+        old.setRating(rating);
+        bookService.updateBook(old);
+        return "redirect:/books/{id}";
     }
 }

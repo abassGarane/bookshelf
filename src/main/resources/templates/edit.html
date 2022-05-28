@@ -17,9 +17,9 @@
     <div class="content row ">
         <div th:replace="fragments/header :: header"></div>
         <div class="col-6">
-            <h1>Create a new Book</h1>
+            <h1>Update a Book</h1>
             <div class="card-body">
-                <form th:action="@{/books}" th:object="${book}" method="post">
+                <form th:action="@{/books/update/{id}(id=${book.id})}" th:object="${book}" method="post">
                     <div class="form-group mb-3">
                         <label for="name">Book name</label>
                         <input type="text" name="name" th:field="*{name}" placeholder="Enter Book name"
@@ -52,7 +52,7 @@
                             placeholder="Enter the book's language" class="form-control">
                     </div>
                     <div class="footer-body">
-                        <button class="btn btn-primary" type="submit">Create</button>
+                        <button class="btn btn-primary" type="submit">Update Book</button>
                     </div>
                 </form>
             </div>
@@ -60,6 +60,7 @@
         </div>
 
     </div>
+    <br>
     <br>
     <br>
     <div class="row text-center bg-dark text-light" th:insert="fragments/footer :: footer">Stuff</div>
